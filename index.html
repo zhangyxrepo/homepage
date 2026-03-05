@@ -17,25 +17,184 @@ MathJax.Hub.Config({
 </script>
 <!-- End MathJax -->
 <style type="text/css">
+  :root {
+    --bg-top: #f3f9f8;
+    --bg-bottom: #e5edf5;
+    --surface: #ffffff;
+    --surface-soft: #f7fbfd;
+    --line: #d6e2ea;
+    --ink: #193446;
+    --muted: #557080;
+    --accent: #0f766e;
+    --accent-soft: #e6f4f2;
+    --accent-2: #a34d13;
+    --shadow: 0 16px 34px rgba(25, 52, 70, 0.12);
+    --radius: 14px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding-bottom: 10px;
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background:
+      radial-gradient(circle at 12% 10%, #fefefe 0%, rgba(254, 254, 254, 0) 42%),
+      radial-gradient(circle at 92% 22%, #eef8f5 0%, rgba(238, 248, 245, 0) 34%),
+      linear-gradient(168deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  }
+
+  table#tlayout {
+    width: min(1220px, 96vw);
+    margin: 18px auto 28px auto;
+    border-spacing: 14px;
+    background: transparent;
+  }
+
+  #layout-menu {
+    min-width: 148px;
+    box-sizing: border-box;
+    padding: 12px 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 24px rgba(20, 39, 58, 0.1);
+    backdrop-filter: blur(3px);
+    position: sticky;
+    top: 16px;
+  }
+
+  #layout-menu .menu-item {
+    padding-left: 0;
+    text-indent: 0;
+    margin: 4px 0;
+  }
+
+  #layout-menu a {
+    display: block;
+    margin-left: 0;
+    padding: 8px 11px;
+    border-radius: 10px;
+    line-height: 1.3em;
+    color: #1c576a;
+    font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+    font-size: 0.92em;
+    letter-spacing: 0.2px;
+  }
+
+  #layout-menu a:link,
+  #layout-menu a:visited {
+    color: #1c576a;
+  }
+
+  #layout-menu a:hover {
+    color: #12495a;
+    background: var(--accent-soft);
+    border-bottom: none;
+  }
+
+  #layout-menu a.current:link,
+  #layout-menu a.current:visited {
+    color: #ffffff;
+    background: var(--accent);
+    border-bottom: none;
+  }
+
+  #layout-content {
+    box-sizing: border-box;
+    padding: 22px 24px 16px 24px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  a,
+  a > tt {
+    color: #0c6784;
+  }
+
+  a:hover {
+    border-bottom: 1px dotted #0c6784;
+  }
+
+  h1, h2, h3 {
+    color: #0f4c5f;
+    border-bottom: none;
+    font-family: "Optima", "Candara", "Avenir Next", "Segoe UI", sans-serif;
+    letter-spacing: 0.2px;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 6px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 2.02em;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 1.28em;
+  }
+
+  p {
+    line-height: 1.58;
+  }
+
+  div#toptitle {
+    margin-bottom: 14px;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
   .hero-card {
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    background: #fcfcfc;
-    border: 1px solid #dedede;
-    border-radius: 8px;
+    border: 1px solid #d6e3ea;
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    background: linear-gradient(145deg, #ffffff 0%, #f6fbff 100%);
+    box-shadow: 0 10px 22px rgba(18, 55, 76, 0.09);
+  }
+
+  table.imgtable {
+    width: 100%;
+    margin: 0;
+  }
+
+  table.imgtable td {
+    vertical-align: top;
+  }
+
+  table.imgtable img {
+    width: 150px;
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 8px 20px rgba(20, 49, 68, 0.2);
   }
 
   .profile-name {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    font-size: 1.34em;
   }
 
   .profile-role {
-    color: #444444;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
+    color: var(--muted);
+    font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
   }
 
   .contact-list {
-    margin-top: 8px;
+    margin-top: 7px;
     margin-bottom: 8px;
   }
 
@@ -43,44 +202,139 @@ MathJax.Hub.Config({
     margin-bottom: 3px;
   }
 
+  .quick-links {
+    margin-top: 8px;
+  }
+
+  .quick-links a {
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 6px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid #c8dae4;
+    background: #ffffff;
+    font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+    font-size: 0.9em;
+  }
+
+  .quick-links a:hover {
+    border-color: #88b4c7;
+    background: #f2f9fc;
+  }
+
   .quote {
     margin-top: 10px;
-    padding: 8px 10px;
-    background: #f5f5f5;
-    border-left: 3px solid #73216D;
+    padding: 9px 11px;
+    background: #f4f8fa;
+    border-left: 3px solid var(--accent-2);
+    border-radius: 2px;
   }
 
-  .note {
-    color: #666666;
-    font-size: 93%;
-    margin-top: 4px;
+  .interest-tags {
+    margin-top: 10px;
   }
 
-  .section-anchor {
-    display: block;
+  .interest-tags span {
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e6f1f9;
+    color: #1b4f66;
+    font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+    font-size: 0.84em;
+    letter-spacing: 0.1px;
+  }
+
+  .section-card {
+    margin-top: 14px;
+    padding: 14px 16px 10px 16px;
+    border-radius: 12px;
+    border: 1px solid #dce7ef;
+    background: var(--surface-soft);
     position: relative;
-    top: -8px;
-    visibility: hidden;
+    scroll-margin-top: 24px;
+  }
+
+  .section-card:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #0f766e 0%, #44a1b8 100%);
+  }
+
+  .section-card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .news-list,
+  .award-list,
+  .publication-list {
+    margin-top: 0.3em;
+    padding-left: 22px;
+    list-style-type: disc;
   }
 
   .news-list li,
   .award-list li,
   .publication-list li {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .publication-title {
     font-weight: bold;
+    color: #154f63;
+  }
+
+  .note {
+    color: #5d7481;
+    font-size: 93%;
   }
 
   .visitor-map {
-    margin-top: 16px;
+    margin-top: 10px;
+    text-align: center;
   }
 
   .visitor-map img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 760px;
+    border: 1px solid #d8e5ed;
+    border-radius: 10px;
+    box-shadow: 0 8px 22px rgba(21, 47, 66, 0.08);
     height: auto;
-    border: 1px solid #e6e6e6;
+  }
+
+  div#footer {
+    border-top: none;
+    margin-top: 10px;
+    padding-top: 0;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: rise-in 0.62s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.08s; }
+  .delay-2 { animation-delay: 0.16s; }
+  .delay-3 { animation-delay: 0.24s; }
+  .delay-4 { animation-delay: 0.32s; }
+  .delay-5 { animation-delay: 0.4s; }
+
+  @keyframes rise-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 900px) {
@@ -92,20 +346,31 @@ MathJax.Hub.Config({
       width: 100% !important;
     }
 
+    table#tlayout {
+      margin-top: 10px;
+      border-spacing: 0;
+    }
+
     #layout-menu {
-      margin: 8px 8px 0 8px;
-      box-sizing: border-box;
-      border-radius: 6px;
+      position: static;
+      margin-bottom: 10px;
+      padding: 8px;
     }
 
     #layout-menu .menu-item {
       display: inline-block;
-      margin-right: 10px;
+      margin: 2px 4px 2px 0;
+    }
+
+    #layout-menu a {
+      display: inline-block;
+      padding: 7px 9px;
+      font-size: 0.85em;
     }
 
     #layout-content {
-      padding: 10px 10px 0 10px;
-      box-sizing: border-box;
+      border-radius: 14px;
+      padding: 14px 12px 12px 12px;
     }
 
     table.imgtable tr,
@@ -116,7 +381,12 @@ MathJax.Hub.Config({
     }
 
     table.imgtable img {
+      width: 130px;
       margin-bottom: 10px;
+    }
+
+    .section-card {
+      padding: 12px 12px 8px 12px;
     }
   }
 </style>
@@ -132,126 +402,136 @@ MathJax.Hub.Config({
   <div class="menu-item"><a href="#awards">Awards</a></div>
 </td>
 <td id="layout-content">
-<div id="toptitle">
-  <h1>Yuxiang Zhang</h1>
-</div>
+<div class="page-shell">
+  <div id="toptitle" class="reveal">
+    <h1>Yuxiang Zhang</h1>
+  </div>
 
-<div class="hero-card">
-  <table class="imgtable">
-    <tr>
-      <td>
-        <img src="zyx.jpg" alt="Yuxiang Zhang Photo" width="140" />
-      </td>
-      <td align="left">
-        <p class="profile-name"><b>Yuxiang Zhang</b></p>
-        <p class="profile-role">Research Assistant</p>
+  <div class="hero-card reveal delay-1">
+    <table class="imgtable">
+      <tr>
+        <td>
+          <img src="zyx.jpg" alt="Yuxiang Zhang Photo" />
+        </td>
+        <td align="left">
+          <p class="profile-name"><b>Yuxiang Zhang</b></p>
+          <p class="profile-role">Research Assistant</p>
 
-        <div class="contact-list">
-          <div>
-            <a href="https://www.hkust-gz.edu.cn/" target="_blank" rel="noopener noreferrer">HKUST (Guangzhou)</a>
+          <div class="contact-list">
+            <div>
+              <a href="https://www.hkust-gz.edu.cn/" target="_blank" rel="noopener noreferrer">HKUST (Guangzhou)</a>
+            </div>
+            <div>
+              <a href="http://www.ict.ac.cn/" target="_blank" rel="noopener noreferrer">Institute of Computing Technology</a>,
+              <a href="https://www.cas.cn/" target="_blank" rel="noopener noreferrer">CAS</a>
+            </div>
           </div>
-          <div>
-            <a href="http://www.ict.ac.cn/" target="_blank" rel="noopener noreferrer">Institute of Computing Technology</a>,
-            <a href="https://www.cas.cn/" target="_blank" rel="noopener noreferrer">CAS</a>
+
+          <div><b>Email:</b> zhangyuxiang22s@ict.ac.cn / yuxiangzhang@hkust-gz.edu.cn</div>
+          <div class="quick-links">
+            <a href="mailto:zhangyuxiang22s@ict.ac.cn">Email Me</a>
+            <a href="https://scholar.google.com/citations?user=2qTqNjMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
           </div>
-          <div>
-            <a href="http://www.ict.ac.cn/jssgk/zzjg/kyxt/gtljsj/js/" target="_blank" rel="noopener noreferrer">High-Throughput Computing Research Center, State Key Laboratory of Processors</a>
+
+          <div class="quote">
+            <b>Quote I love:</b> If you are stuck, you have to find your own way out.
           </div>
-        </div>
 
-        <div><b>Email:</b> zhangyuxiang22s@ict.ac.cn / yuxiangzhang@hkust-gz.edu.cn</div>
-        <div>
-          <a href="https://scholar.google.com/citations?user=2qTqNjMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-        </div>
+          <div class="interest-tags">
+            <span>Graph Representation Learning</span>
+            <span>Vision-Language-Action Models</span>
+            <span>Trustworthy AI</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-        <div class="quote">
-          <b>Quote I love:</b> If you are stuck, you have to find your own way out.
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<span id="about" class="section-anchor"></span>
-<h2>About Me</h2>
-<p>
-  I am currently a research assistant at HKUST (Guangzhou), advised by Prof. Enyan Dai.
-  I received my M.S. degree in Computer Science and Technology from the Institute of Computing Technology,
-  Chinese Academy of Sciences, where I had the privilege of working with
-  Prof. <a href="http://www.ict.ac.cn/sourcedb/cn/jssrck/201411/t20141115_4253437.html/" target="_blank" rel="noopener noreferrer">Xiaochun Ye</a>.
-  I obtained my B.S. degree from <a href="https://www.xidian.edu.cn/" target="_blank" rel="noopener noreferrer">Xidian University</a>.
-</p>
-<p>
-  My research interests include <b>Graph Representation Learning</b>,
-  <b>Graph Adversarial Attack</b>, and <b>Trustworthy AI</b>.
-</p>
-
-<span id="news" class="section-anchor"></span>
-<h2>Top News</h2>
-<ul class="news-list">
-  <li>
+  <div class="section-card reveal delay-2" id="about">
+    <h2>About Me</h2>
     <p>
-      <b>[May 2025]</b>
-      <a href="https://ieeexplore.ieee.org/abstract/document/10980208/" target="_blank" rel="noopener noreferrer">Revisiting Edge Perturbation for Graph Neural Network in Graph Data Augmentation and Attack</a>
-      was accepted by <i>IEEE Transactions on Knowledge and Data Engineering (TKDE)</i>.
+      I am currently a research assistant at HKUST (Guangzhou), advised by Prof. Enyan Dai.
+      I received my M.S. degree in Computer Science and Technology from the Institute of Computing Technology,
+      Chinese Academy of Sciences, where I had the privilege of working with
+      Prof. <a href="http://www.ict.ac.cn/sourcedb/cn/jssrck/201411/t20141115_4253437.html/" target="_blank" rel="noopener noreferrer">Xiaochun Ye</a>.
+      I obtained my B.S. degree from <a href="https://www.xidian.edu.cn/" target="_blank" rel="noopener noreferrer">Xidian University</a>.
     </p>
-  </li>
-  <li>
     <p>
-      <b>[May 2024]</b>
-      <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-69766-1_21" target="_blank" rel="noopener noreferrer">Disttack: Graph Adversarial Attacks Toward Distributed GNN Training</a>
-      was accepted by <i>Euro-Par 2024</i>.
+      My research interests include <b>Graph Representation Learning</b>,
+      <b>Vision-Language-Action Models</b>, and <b>Trustworthy AI</b>.
     </p>
-  </li>
-</ul>
+  </div>
 
-<span id="research" class="section-anchor"></span>
-<h2>Research Interests</h2>
-<p>My work focuses on graph representation learning, especially in the following directions:</p>
-<ul>
-  <li><p><b>Graph data mining and graph augmentation methods.</b></p></li>
-  <li><p><b>Graph adversarial attack and robustness of GNNs.</b></p></li>
-  <li><p><b>Reliable and trustworthy graph intelligence systems.</b></p></li>
-</ul>
+  <div class="section-card reveal delay-3" id="news">
+    <h2>Top News</h2>
+    <ul class="news-list">
+      <li>
+        <p>
+          <b>[May 2025]</b>
+          <a href="https://ieeexplore.ieee.org/abstract/document/10980208/" target="_blank" rel="noopener noreferrer">Revisiting Edge Perturbation for Graph Neural Network in Graph Data Augmentation and Attack</a>
+          was accepted by <i>IEEE Transactions on Knowledge and Data Engineering (TKDE)</i>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <b>[May 2024]</b>
+          <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-69766-1_21" target="_blank" rel="noopener noreferrer">Disttack: Graph Adversarial Attacks Toward Distributed GNN Training</a>
+          was accepted by <i>Euro-Par 2024</i>.
+        </p>
+      </li>
+    </ul>
+  </div>
 
-<h2>Selected Publications</h2>
-<ul class="publication-list">
-  <li>
-    <p>
-      <span class="publication-title">Revisiting Edge Perturbation for Graph Neural Network in Graph Data Augmentation and Attack</span><br />
-      Xin Liu<sup>&#8224;</sup>, <b>Yuxiang Zhang</b><sup>&#8224;</sup>, Meng Wu, Mingyu Yan, Kun He, Wei Yan, Shirui Pan, Xiaochun Ye, Dongrui Fan.<br />
-      <a href="https://ieeexplore.ieee.org/abstract/document/10980208/" target="_blank" rel="noopener noreferrer">IEEE TKDE</a> (CCF-A).<br />
-      <span class="note"><sup>&#8224;</sup> Equal contribution.</span>
-    </p>
-  </li>
-  <li>
-    <p>
-      <span class="publication-title">Disttack: Graph Adversarial Attacks Toward Distributed GNN Training</span><br />
-      <b>Yuxiang Zhang</b>, Xin Liu, Meng Wu, Mingyu Yan, Wei Yan, Xiaochun Ye, Dongrui Fan.<br />
-      <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-69766-1_21" target="_blank" rel="noopener noreferrer">Euro-Par 2024</a> (CCF-B).
-    </p>
-  </li>
-</ul>
+  <div class="section-card reveal delay-4" id="research">
+    <h2>Research Interests</h2>
+    <p>My work focuses on graph representation learning, especially in the following directions:</p>
+    <ul>
+      <li><p><b>Graph data mining and graph augmentation methods.</b></p></li>
+      <li><p><b>Graph adversarial attack and robustness of GNNs.</b></p></li>
+      <li><p><b>Reliable and trustworthy graph intelligence systems.</b></p></li>
+    </ul>
 
-<span id="awards" class="section-anchor"></span>
-<h2>Honors &amp; Awards</h2>
-<ul class="award-list">
-  <li><p>[2025] Outstanding Graduate Thesis Award, Institute of Computing Technology, CAS.</p></li>
-  <li><p>[2024] Merit Student, University of Chinese Academy of Sciences.</p></li>
-  <li><p>[2022] Summa Cum Laude, Xidian University.</p></li>
-  <li><p>[2022] First Class Scholarship for Final-year Undergraduates, Xidian University.</p></li>
-  <li><p>[2020] Chinese National Scholarship for Undergraduates.</p></li>
-  <li><p>[2019] Chinese National Scholarship for Undergraduates.</p></li>
-</ul>
+    <h2>Selected Publications</h2>
+    <ul class="publication-list">
+      <li>
+        <p>
+          <span class="publication-title">Revisiting Edge Perturbation for Graph Neural Network in Graph Data Augmentation and Attack</span><br />
+          Xin Liu<sup>&#8224;</sup>, <b>Yuxiang Zhang</b><sup>&#8224;</sup>, Meng Wu, Mingyu Yan, Kun He, Wei Yan, Shirui Pan, Xiaochun Ye, Dongrui Fan.<br />
+          <a href="https://ieeexplore.ieee.org/abstract/document/10980208/" target="_blank" rel="noopener noreferrer">IEEE TKDE</a> (CCF-A).<br />
+          <span class="note"><sup>&#8224;</sup> Equal contribution.</span>
+        </p>
+      </li>
+      <li>
+        <p>
+          <span class="publication-title">Disttack: Graph Adversarial Attacks Toward Distributed GNN Training</span><br />
+          <b>Yuxiang Zhang</b>, Xin Liu, Meng Wu, Mingyu Yan, Wei Yan, Xiaochun Ye, Dongrui Fan.<br />
+          <a href="https://dl.acm.org/doi/abs/10.1007/978-3-031-69766-1_21" target="_blank" rel="noopener noreferrer">Euro-Par 2024</a> (CCF-B).
+        </p>
+      </li>
+    </ul>
+  </div>
 
-<div class="visitor-map">
-  <a href="https://clustrmaps.com/site/1c07m" title="Visit tracker">
-    <img src="//www.clustrmaps.com/map_v2.png?d=x50FdY-rpsZ786PDWS4AgewO9wEsq8HC6ZGV57lmpjg&amp;cl=ffffff" alt="Visitor map" />
-  </a>
-</div>
+  <div class="section-card reveal delay-5" id="awards">
+    <h2>Honors &amp; Awards</h2>
+    <ul class="award-list">
+      <li><p>[2025] Outstanding Graduate Thesis Award, Institute of Computing Technology, CAS.</p></li>
+      <li><p>[2024] Merit Student, University of Chinese Academy of Sciences.</p></li>
+      <li><p>[2022] Summa Cum Laude, Xidian University.</p></li>
+      <li><p>[2022] First Class Scholarship for Final-year Undergraduates, Xidian University.</p></li>
+      <li><p>[2020] Chinese National Scholarship for Undergraduates.</p></li>
+      <li><p>[2019] Chinese National Scholarship for Undergraduates.</p></li>
+    </ul>
 
-<div id="footer">
-  <div id="footer-text"></div>
+    <div class="visitor-map">
+      <a href="https://clustrmaps.com/site/1c07m" title="Visit tracker">
+        <img src="//www.clustrmaps.com/map_v2.png?d=x50FdY-rpsZ786PDWS4AgewO9wEsq8HC6ZGV57lmpjg&amp;cl=ffffff" alt="Visitor map" />
+      </a>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="footer-text"></div>
+  </div>
 </div>
 </td>
 </tr>
