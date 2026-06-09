@@ -1,0 +1,26 @@
+resume/
+research/
+beamer/
+latex/
+
+# Local agent/tooling state
+.claude/
+.pipeline/
+CLAUDE.md
+tools/
+config.toml
+
+# Local writing/interview materials
+PhD_Interview/
+rebuttal/
+
+# Temporary logs and generated archives
+conversation-*.txt
+*-local-command-*.txt
+*.zip
+
+# Local helper scripts
+apply-*.sh
+launch-*.sh
+run_*.sh
+safe.sh
